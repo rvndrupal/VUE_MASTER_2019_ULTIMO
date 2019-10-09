@@ -3,3 +3,5 @@ npm install -g @vue/cli
 1.-  vue create nombre-proyecto
 
 2.- correr servidor  npm run serve
+
+3.-hasta ref
