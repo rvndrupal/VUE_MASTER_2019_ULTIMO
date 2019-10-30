@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vue js y vuex</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<script src="components/message.js"></script>
+	<script src="components/computed-properties.js"></script>
+	<script src="components/methods.js"></script>
+	<script src="components/vmodel.js"></script>
+	<script src="components/vmodel-checkbox.js"></script>
+	<script src="components/emit.js"></script>
+
+
+
+</head>
+<body>
+
+	<div id="app">
+		
+		<message></message>
+		<computed></computed>
+		<methods></methods>
+		<vmodel></vmodel>
+		<vmodel-checkbox></vmodel-checkbox>
+		<emit @pasar_evento="mostrarCarro"></emit>
+
+	</div>
+	
+</body>
+
+
+	<script>
+		new Vue({
+
+			el:'#app',
+
+			data (){
+				return{
+					mensaje: "Hola desde vue cargando"
+				}
+			},
+			methods:{
+				mostrarCarro(modelo){
+					alert(modelo)
+				}
+			}
+
+		})
+
+	</script>
+	
+
+</html>
