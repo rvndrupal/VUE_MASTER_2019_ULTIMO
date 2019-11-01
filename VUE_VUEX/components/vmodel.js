@@ -12,7 +12,7 @@
     template: `
         <div>
         <h2>Trabajando con v-model</h2>
-        <input class="form-control" type="text" v-model="framework">
+        <input class="form-control" type="text" v-model="framework" v-focus >
         <p>El framework es: {{ framework }}</p>
     
         </div>

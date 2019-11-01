@@ -3,27 +3,76 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Vue js y vuex</title>
+
+	
+
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+	<script src="components/directivas/focus.js"></script>
+	<script src="components/directivas/change-styles.js"></script>
+
+	<script src="components/filters/currency-filter.js"></script>
+
+
 	<script src="components/message.js"></script>
 	<script src="components/computed-properties.js"></script>
 	<script src="components/methods.js"></script>
 	<script src="components/vmodel.js"></script>
 	<script src="components/vmodel-checkbox.js"></script>
 	<script src="components/emit.js"></script>
+	<script src="components/parent-data.js"></script>
+	<script src="components/child-data.js"></script>
+	<script src="components/child-methods.js"></script>
+	<script src="components/login-form.js"></script>
+	<script src="components/for.js"></script>
+	<script src="components/if.js"></script>
+	<script src="components/slots.js"></script>
+	<script src="components/watchers.js"></script>
+	<script src="components/computed_get_set.js"></script>
+	<script src="components/dynamic-components/cmp1.js"></script>
+	<script src="components/dynamic-components/cmp2.js"></script>
+	<script src="components/dynamic-components/cmp3.js"></script>
+	<script src="components/load-dynamic-component.js"></script>
+	<script src="components/props.js"></script>
+
 
 
 
 </head>
 <body>
 
-	<div id="app">
+	<div id="app" style="margin-bottom: 100px;">
 		
-		<message></message>
+		<message v-change-styles="{backgroundColor: 'red', color: 'white'}"></message>
 		<computed></computed>
 		<methods></methods>
 		<vmodel></vmodel>
 		<vmodel-checkbox></vmodel-checkbox>
 		<emit @pasar_evento="mostrarCarro"></emit>
+		<parent-data></parent-data>
+		<child-data ref="child_data"></child-data>
+		<child-data ref="child_methods"></child-data>
+		<login-form></login-form>
+		<for></for>
+		<if></if>
+		<slots>
+			<template slot="header">
+				<h1>Header del Slot</h1>
+			</template>
+			<template slot="main">
+				<h1>Contenido del slot body</h1>
+			</template>
+			<template slot="footer">
+				<h1>Esto es el footer</h1>
+			</template>
+		</slots>
+
+		<watchers></watchers>
+
+		<computed_get_set></computed_get_set>
+		<load-dynamic-component></load-dynamic-component>
+		<props nombre="Rodrigo" ap="Villanueva" :edad="19"></props>
+
 
 	</div>
 	
@@ -37,13 +86,21 @@
 
 			data (){
 				return{
-					mensaje: "Hola desde vue cargando"
+					appName:'Iniciando con Vuejs esto viene desd el Padre'
 				}
 			},
 			methods:{
 				mostrarCarro(modelo){
 					alert(modelo)
 				}
+			},
+
+			mounted(){
+				
+				setTimeout(() =>{
+					this.$refs.child_methods.showCmp();
+
+				},3000)
 			}
 
 		})
